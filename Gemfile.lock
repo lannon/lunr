@@ -1,0 +1,33 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activerecord (2.3.4)
+      activesupport (= 2.3.4)
+    activesupport (2.3.4)
+    builder (3.0.0)
+    escape (0.0.4)
+    git (1.2.5)
+    jeweler (1.5.2)
+      bundler (~> 1.0.0)
+      git (>= 1.2.5)
+      rake
+    pr_geohash (1.0.0)
+    rake (0.8.7)
+    rsolr (0.12.1)
+      builder (>= 2.1.2)
+    shoulda (2.11.3)
+    sunspot (1.2.1)
+      escape (= 0.0.4)
+      pr_geohash (~> 1.0)
+      rsolr (= 0.12.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activerecord (= 2.3.4)
+  activesupport (= 2.3.4)
+  bundler (~> 1.0.0)
+  jeweler (~> 1.5.2)
+  shoulda
+  sunspot (~> 1.2)

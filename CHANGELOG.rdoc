@@ -1,3 +1,7 @@
+=== 2.0.9 / 2011-03-15
+
+* Bundler & Jeweler added, Isolate removed
+
 === 2.0.8 / 2010-09-13
 
 * Store pagination and total info in default Search JSON.
