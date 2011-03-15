@@ -1,4 +1,7 @@
-require "minitest/autorun"
+require "helper"
 
-class TestLunrModel < MiniTest::Unit::TestCase
+class TestLunrModel < Test::Unit::TestCase
+  should "be so true" do
+    assert true
+  end
 end

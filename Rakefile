@@ -14,11 +14,15 @@ Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "lannon-lunr"
   gem.homepage = "http://github.com/lannon/lunr"
-  gem.license = "MIT"
-  gem.summary = %Q{fork of jbarnette/lunr that uses bundler, jeweler}
-  gem.description = %Q{fork of jbarnette/lunr that uses bundler, jeweler}
-  gem.email = "jlannon@gmail.com"
-  gem.authors = ["lannon"]
+  gem.summary = %Q{A simple read-only interface to Solr, built on Sunspot}
+  gem.description = %Q{A simple read-only interface to Solr, built on Sunspot.
+Lunr makes it easy to query and create objects from a Sunspot-managed
+Solr index without requiring all the knowledge, code, and data used to
+build the index in the first place. If you have complex indexes with a
+stored fields and need to search / access those fields without access
+to the original data store, Lunr might be what you're looking for.}
+  gem.email = "code@jbarnette.com"
+  gem.authors = ["John Barnette"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   gem.add_runtime_dependency 'activesupport', '2.3.4'

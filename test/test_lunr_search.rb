@@ -1,42 +1,59 @@
-require "minitest/autorun"
+require "helper"
 require "mocha"
-require "lunr/search"
 
-class TestLunrSearch < MiniTest::Unit::TestCase
-  include Lunr::Model
+class TestLunrSearch < Test::Unit::TestCase
 
-  def setup
-    @search = Lunr::Search.new self.class
+  # FIXME: ugly. 
+  class ::Searchable
+    include Lunr::Model
   end
 
-  def test_initialize
-    s = Lunr::Search.new self.class do
-      with :foo, "bar"
+  Sunspot.setup ::Searchable do
+    string :bar
+    string :foo
+  end
+
+  context "A Searchable model" do
+    
+    setup do 
+      @searchable = ::Searchable
+      @search = Lunr::Search.new @searchable do
+        with :foo, "bar"
+      end   
     end
-
-    assert_equal TestLunrSearch, s.klass
-    assert_equal "type:TestLunrSearch", s.params[:fq].first
-    assert s.params[:fq].include?("foo_s:bar")
-  end
-
-  def test_scope
-    @search.scope { with :foo, "blergh" }
-    @search.scope { with :bar, "corge"  }
-
-    assert @search.params[:fq].include?("foo_s:blergh")
-    assert @search.params[:fq].include?("bar_s:corge")
-  end
-
-  def test_scope_bad
-    @search.stubs(:executed?).returns true
-
-    assert_raises Lunr::AlreadyExecuted do
-      @search.scope { with :foo, "hello" }
+    
+    should "respond to search" do
+      puts @searchable.respond_to?(:search)
     end
+    
+    should "have some stuff" do
+      
+      assert_equal @searchable, @search.klass
+      assert_equal "type:Searchable", @search.params[:fq].first
+      assert @search.params[:fq].include?("foo_s:bar")
+    end
+    
+    should "have scopes" do
+      
+      @search.scope { with :foo, "blergh" }
+      @search.scope { with :bar, "corge"  }
+    
+      assert @search.params[:fq].include?("foo_s:blergh")
+      assert @search.params[:fq].include?("bar_s:corge")
+    end
+    
+    should "only execute search once" do
+      @search.stubs(:executed?).returns true
+    
+      assert_raises Lunr::AlreadyExecuted do
+        @search.scope { with :foo, "hello" }
+      end
+    end
+    
   end
+  
+  
+  
 end
 
-Sunspot.setup TestLunrSearch do
-  string :bar
-  string :foo
-end
+

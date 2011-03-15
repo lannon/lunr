@@ -1,11 +1,12 @@
-require "minitest/autorun"
-require "fakeweb"
-require "lunr"
+require "helper"
 
-FakeWeb.allow_net_connect = false
-
-class TestLunr < MiniTest::Unit::TestCase
-  def setup
-    FakeWeb.clean_registry
+class TestLunr < Test::Unit::TestCase
+  context "A Lunr test" do
+    setup do
+      FakeWeb.clean_registry
+    end
+    should "be so true" do
+      assert true
+    end
   end
 end
