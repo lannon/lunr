@@ -36,6 +36,7 @@ to the original data store, Lunr might be what you're looking for.}
     "lib/lunr/model/klass.rb",
     "lib/lunr/search.rb",
     "lib/lunr/sunspot.rb",
+    "test/helper.rb",
     "test/test_lunr.rb",
     "test/test_lunr_model.rb",
     "test/test_lunr_search.rb"
