@@ -17,9 +17,14 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".autotest",
+    ".rvmrc",
     "CHANGELOG.rdoc",
+    "Gemfile",
+    "Gemfile.lock",
     "README.rdoc",
+    "Rakefile",
     "VERSION",
+    "lannon-lunr.gemspec",
     "lib/lunr.rb",
     "lib/lunr/errors.rb",
     "lib/lunr/model.rb",
