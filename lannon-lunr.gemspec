@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["John Barnette"]
-  s.date = %q{2011-03-15}
+  s.date = %q{2011-03-16}
   s.description = %q{A simple read-only interface to Solr, built on Sunspot.
 Lunr makes it easy to query and create objects from a Sunspot-managed
 Solr index without requiring all the knowledge, code, and data used to
